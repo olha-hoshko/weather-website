@@ -385,13 +385,13 @@ body,
   font-size: 13px;
 }
 
-.poweredBy > a {
+.poweredBy>a {
   color: rgb(37, 92, 195);
   text-decoration: none;
   transition: 0.3s;
 }
 
-.poweredBy > a:hover {
+.poweredBy>a:hover {
   color: rgb(89, 144, 248);
 }
 
@@ -424,26 +424,89 @@ body,
   visibility: hidden;
 }
 
-#toggle-dark:checked + #toggle-label {
+#toggle-dark:checked+#toggle-label {
   background: #242424;
 }
 
-#toggle-dark:checked + #toggle-label::after {
+#toggle-dark:checked+#toggle-label::after {
   left: 61px;
   transform: translateX(-100%);
   background: linear-gradient(180deg, #a2a2a2, #656565);
 }
 
-#toggle-label, #toggle-label:after {
+#toggle-label,
+#toggle-label:after {
   transition: 0.3s;
 }
 
-#toggle-label:active::after{ 
-  width: 32px; 
+#toggle-label:active::after {
+  width: 32px;
 }
 
-@media screen and (max-width: 1024px ) {
-  html, body, #root {
+@media screen and (max-width: 480px) {
+  .current-weather-pic img {
+    max-height: 125px;
+    padding: 40px 0;
+  }
+
+  .current-weather-city h2 {
+    font-size: 28px;
+  }
+
+  .current-weather-temperature p {
+    font-size: 45px;
+  }
+
+  .current-weather-city p {
+    font-size: 13px;
+  }
+
+  .current-weather-city,
+  .current-weather-temperature {
+    padding: 0 0 0 15px;
+  }
+
+  .week-forecast-daily {
+    padding: 0 5px;
+  }
+
+  .week-forecast-weather-icon img {
+    padding: 0 10px 0 0;
+  }
+
+  .day-of-week,
+  .week-forecast-weather,
+  .temperature-limits>span {
+    font-size: 14px;
+  }
+
+  .today-forecast-data> :last-child {
+    font-size: 20px;
+  }
+
+  .today-forecast-hourly,
+  .air-conditions-container {
+    padding: 13px 5px 0 5px;
+  }
+
+  .air-conditions-icon img {
+    height: 20px;
+  }
+
+  .air-conditions-data-indicator {
+    font-size: 22px;
+  }
+
+  .air-conditions-data-title {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  html,
+  body,
+  #root {
     overflow-y: auto;
     min-height: 170vh;
   }
@@ -471,9 +534,10 @@ body,
     padding: 20px 0 10px 0;
   }
 
-  .css-13cymwt-control, .css-t3ipsp-control {
+  .css-13cymwt-control,
+  .css-t3ipsp-control {
     margin: 0 2.45% !important;
-    width: 94.8% !important; 
+    width: 94.8% !important;
   }
 
   .main-container {
@@ -492,11 +556,13 @@ body,
   }
 
   .weather-today-container-inner {
-    gap: 20px; 
+    gap: 20px;
     min-height: 82vh;
   }
 
-  .today-forecast, .air-conditions, .week-forecast {
+  .today-forecast,
+  .air-conditions,
+  .week-forecast {
     padding: 17px;
   }
 
