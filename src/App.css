@@ -29,35 +29,40 @@ body,
 }
 
 .home-page {
+  height: 97.6vh;
+  padding: 10px 0;
   display: flex;
-  flex-direction: column;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
+  box-sizing: border-box;
 }
 
-.home-page> :first-child {
+.home-page-main {
+  flex: 15;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page-main> :first-child {
   flex: 1;
 }
 
-.home-page> :last-child {
+.home-page-main> :last-child {
   flex: 2;
 }
 
-.home-page .css-13cymwt-control,
-.home-page .css-t3ipsp-control {
-  margin: 0 16.9% !important;
+.home-page-main .css-13cymwt-control,
+.home-page-main .css-t3ipsp-control {
+  margin: 0 13% 0 13% !important;
 }
 
-.home-page .css-1nmdiq5-menu {
-  margin: 10px 16.9% 0 16.9% !important;
+.home-page-main .css-1nmdiq5-menu {
+  margin: 10px 13% 0 13% !important;
 }
 
 .main-title-container {
   color: #ffffff;
   display: flex;
-  justify-content: center;
   align-items: flex-end;
+  margin: 0 0 10px 34%;
 }
 
 /*HEADER*/
@@ -579,8 +584,13 @@ body,
     min-height: 170vh;
   }
 
-  .App {
+  .App, .home-page {
     flex-direction: column;
+  }
+
+  .main-title-container {
+    margin: 0 0 5px 0;
+    justify-content: center;
   }
 
   .theme-change-button-container {
@@ -602,9 +612,9 @@ body,
     padding: 20px 0 10px 0;
   }
 
-  .home-page .css-13cymwt-control,
-  .home-page .css-t3ipsp-control,
-  .home-page .css-1nmdiq5-menu {
+  .home-page-main .css-13cymwt-control,
+  .home-page-main .css-t3ipsp-control,
+  .home-page-main .css-1nmdiq5-menu {
     margin: 0 2.45% !important;
   }
 
