@@ -6,7 +6,7 @@ export const TodayForecastData: FC<TodayForecastDataProps> = ({ hour, condition,
     <div className={`today-forecast-data today-${hour}`}>
       <p>{hour}</p>
       <div className='today-weather-icon'>
-        <img src={`/images/${condition}.svg`} alt='' />
+        <img src={`./images/${condition}.svg`} alt='' />
       </div>
       <p>{temperature}</p>
     </div>

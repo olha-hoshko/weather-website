@@ -9,10 +9,10 @@ export const CurrentWeather: FC = () => {
   }
 
   const getMainIcon = () => {
-    const defaultIcon = '/images/Sunny.svg';
+    const defaultIcon = './images/Sunny.svg';
     if (Object.keys(weatherForecastData.current).length === 0) return defaultIcon;
     const currentCondition = weatherForecastData.current.condition.text;
-    const iconLink = `/images/${currentCondition}.svg`;
+    const iconLink = `./images/${currentCondition}.svg`;
     return iconLink;
   }
 

@@ -15,7 +15,7 @@ export const WeekForecastData: FC<WeekForecastDataProps> = ({ dayOfWeek, conditi
       <p className='day-of-week'>{dayOfWeek}</p>
       <div className='week-forecast-weather-container'>
         <div className='week-forecast-weather-icon'>
-          <img src={`/images/${condition}.svg`} alt='' />
+          <img src={`./images/${condition}.svg`} alt='' />
         </div>
         <p className='week-forecast-weather'>{condition}</p>
       </div>

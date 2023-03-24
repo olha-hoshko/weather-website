@@ -35,13 +35,13 @@ export const AirConditionsData: FC<AirConditiomsDataProps> = ({ name }) => {
   const getIcon = () => {
     switch (name) {
       case AirCondition.real_feel:
-        return '/images/air-conditions-icons/temperature-icon.svg';
+        return './images/air-conditions-icons/temperature-icon.svg';
       case AirCondition.chance_of_rain:
-        return '/images/air-conditions-icons/water-drop-icon.svg';
+        return './images/air-conditions-icons/water-drop-icon.svg';
       case AirCondition.wind:
-        return '/images/air-conditions-icons/wind-icon.svg';
+        return './images/air-conditions-icons/wind-icon.svg';
       case AirCondition.uv_index:
-        return '/images/air-conditions-icons/sun-icon.svg';
+        return './images/air-conditions-icons/sun-icon.svg';
     }
   }
 
