@@ -28,6 +28,37 @@ body,
   height: 100%;
 }
 
+.home-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page> :first-child {
+  flex: 1;
+}
+
+.home-page> :last-child {
+  flex: 2;
+}
+
+.home-page .css-13cymwt-control,
+.home-page .css-t3ipsp-control {
+  margin: 0 16.9% !important;
+}
+
+.home-page .css-1nmdiq5-menu {
+  margin: 10px 16.9% 0 16.9% !important;
+}
+
+.main-title-container {
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
 
 /*HEADER*/
 
@@ -104,6 +135,35 @@ body,
   background-color: #114895 !important;
   border-radius: 5px;
 }
+
+/*SPINNER*/
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #383636;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
 
 /*MAIN DATA*/
 .weather-data-container {
@@ -540,6 +600,12 @@ body,
 
   .search-city-container {
     padding: 20px 0 10px 0;
+  }
+
+  .home-page .css-13cymwt-control,
+  .home-page .css-t3ipsp-control,
+  .home-page .css-1nmdiq5-menu {
+    margin: 0 2.45% !important;
   }
 
   .css-13cymwt-control,

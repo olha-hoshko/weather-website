@@ -1,17 +1,18 @@
 import './App.css';
-import { Header } from './components/header';
-import { ThemeChangeButton } from './components/theme-change-button';
-import { WeatherData } from './components/weather-data/component';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { ForecastPage } from './components/forecast-page';
+import { HomePage } from './components/home-page';
 
 function App() {
   return (
-    <div className='App'>
-      <ThemeChangeButton />
-      <div className='main-container'>
-        <Header />
-        <WeatherData />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/weather-website/*">
+          <Route index element={<HomePage />} />
+          <Route path="forecast" element={<ForecastPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

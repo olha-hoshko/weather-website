@@ -40,10 +40,12 @@ export const weatherForecastSlice = createSlice({
 
 export const useWeatherForecast = () => {
   const weatherForecastData = useAppSelector((state: RootState) => state.weatherForecast.value);
+  const isFetching = useAppSelector((state: RootState) => state.weatherForecast.isFetching);
   const dispatch = useAppDispatch();
 
   return {
     weatherForecastData,
+    isFetching,
     dispatch,
   };
 }
