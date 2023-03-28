@@ -728,6 +728,7 @@ body,
   .App,
   .home-page {
     flex-direction: column;
+    padding: 10px 0;
   }
 
   .main-title-container-light, .main-title-container-dark {
