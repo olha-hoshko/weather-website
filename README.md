@@ -1,3 +1,7 @@
+## Design
+
+The design of this web page was copied from https://uizard.io/templates/web-app-templates/weather-web-app-dark/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
