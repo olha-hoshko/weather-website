@@ -717,18 +717,15 @@ body,
 }
 
 @media screen and (max-width: 1024px) {
-
-  html,
-  body,
-  #root {
-    overflow-y: auto;
-    min-height: 170vh;
-  }
-
   .App,
   .home-page {
     flex-direction: column;
     padding: 10px 0;
+  }
+
+  .App {
+    min-height: 170vh;
+    overflow-y: auto;
   }
 
   .main-title-container-light, .main-title-container-dark {
