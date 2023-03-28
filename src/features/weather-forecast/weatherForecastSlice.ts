@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { AppDispatch, RootState } from "../../app/store";
+import { envVariables } from "../../configs";
 import { WeatherForecastProps } from "./types";
 
 const initialState: WeatherForecastProps = {
@@ -56,12 +57,12 @@ export const { setError, setWeatherForecast, fetchStarted } = weatherForecastSli
 
 export const fetchAsyncWeatherForecast = (searchData: any) => {
   return async (dispatch: AppDispatch) => {
+    const { apiKey, apiLink, forecastDays } = envVariables.weather;
     const { lat, lon } = searchData;
     const location = `${lat},${lon}`;
-    const days = process.env.REACT_APP_FORECAST_DAYS;
     try {
       dispatch(fetchStarted());
-      const fetchResult = await fetch(`${process.env.REACT_APP_API_LINK}forecast.json?key=${process.env.REACT_APP_API_KEY}&q=${location}&days=${days}&aqi=no&alerts=no`);
+      const fetchResult = await fetch(`${apiLink}forecast.json?key=${apiKey}&q=${location}&days=${forecastDays}&aqi=no&alerts=no`);
       const weatherData = await fetchResult.json();
       dispatch(setWeatherForecast(weatherData));
     } catch (error) {

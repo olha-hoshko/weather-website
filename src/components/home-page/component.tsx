@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AsyncPaginate } from "react-select-async-paginate";
+import { envVariables } from "../../configs";
 import { ThemeColors } from "../../enums/enums";
 import { useThemeColor } from "../../features/theme-color";
 import { fetchAsyncWeatherForecast, useWeatherForecast } from "../../features/weather-forecast";
@@ -12,6 +13,7 @@ export const HomePage: FC = () => {
   const [search, setSearch] = useState(null);
   const [className, setClassName] = useState<string>('');
   const navigate = useNavigate();
+  const { apiKey, apiLink } = envVariables.weather;
 
   const handleChange = (searchData: any) => {
     setSearch(searchData);
@@ -22,7 +24,7 @@ export const HomePage: FC = () => {
   const loadOptions = async (value: string, loadedOptions: any) => {
     if (!value) return { options: [] };
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_LINK}search.json?key=${process.env.REACT_APP_API_KEY}&q=${value}`);
+      const response = await fetch(`${apiLink}search.json?key=${apiKey}&q=${value}`);
       const responseJSON = await response.json();
       return { options: responseJSON };
     } catch (error) {

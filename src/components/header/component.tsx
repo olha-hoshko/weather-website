@@ -3,12 +3,14 @@ import { AsyncPaginate } from "react-select-async-paginate";
 import { ThemeColors } from "../../enums/enums";
 import { useThemeColor } from "../../features/theme-color";
 import { fetchAsyncWeatherForecast, useWeatherForecast } from "../../features/weather-forecast";
+import { envVariables } from '../../configs'
 
 export const Header: FC = () => {
   const { dispatch } = useWeatherForecast();
   const [search, setSearch] = useState(null);
   const { themeColor } = useThemeColor();
   const [className, setClassName] = useState<string>('');
+  const { apiKey, apiLink } = envVariables.weather;
 
   const handleChange = (searchData: any) => {
     setSearch(searchData);
@@ -18,7 +20,7 @@ export const Header: FC = () => {
   const loadOptions = async (value: string, loadedOptions: any) => {
     if (!value) return { options: [] };
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_LINK}search.json?key=${process.env.REACT_APP_API_KEY}&q=${value}`);
+      const response = await fetch(`${apiLink}search.json?key=${apiKey}&q=${value}`);
       const responseJSON = await response.json();
       return { options: responseJSON };
     } catch (error) {
@@ -28,7 +30,7 @@ export const Header: FC = () => {
   }
 
   useEffect(() => {
-    if(themeColor === ThemeColors.dark) {
+    if (themeColor === ThemeColors.dark) {
       setClassName('dark-search');
     } else {
       setClassName('');
