@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { useThemeColor } from "../../features/theme-color";
 import { useWeatherForecast } from "../../features/weather-forecast";
 
 export const CurrentWeather: FC = () => {

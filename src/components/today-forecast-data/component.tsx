@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { useThemeColor } from "../../features/theme-color";
 import { TodayForecastDataProps } from "./types";
 
 export const TodayForecastData: FC<TodayForecastDataProps> = ({ hour, condition, temperature }) => {

@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { ThemeColors } from "../../enums/enums";
-import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { useThemeColor } from "../../features/theme-color";
 import { fetchAsyncWeatherForecast, useWeatherForecast } from "../../features/weather-forecast";
 import { ThemeChangeButton } from "../theme-change-button";
 

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { useThemeColor } from "../../features/theme-color";
 import { WeekForecastDataProps } from "./types";
 
 export const WeekForecastData: FC<WeekForecastDataProps> = ({ dayOfWeek, condition, maxTemperature, minTemperature }) => {

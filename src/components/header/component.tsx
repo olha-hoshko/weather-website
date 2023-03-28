@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { ThemeColors } from "../../enums/enums";
-import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { useThemeColor } from "../../features/theme-color";
 import { fetchAsyncWeatherForecast, useWeatherForecast } from "../../features/weather-forecast";
 
 export const Header: FC = () => {

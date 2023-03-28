@@ -548,6 +548,35 @@ body,
   justify-content: flex-end;
 }
 
+/*theme icons*/
+
+.theme-change-button-container svg {
+  position: absolute;
+  top: 2.5px;
+  z-index: 100;
+  transition: 0.3s;
+}
+
+.current-icon {
+  fill: #ffffff; 
+}
+
+.disable-icon {
+  fill: #7e7e7e;
+}
+
+.light-theme-icon {
+  left: 4px;
+  height: 23px; 
+  width: 23px;
+}
+
+.dark-theme-icon {
+  left: 37px;
+  height: 21px; 
+  width: 21px;
+}
+
 
 /*theme change button*/
 

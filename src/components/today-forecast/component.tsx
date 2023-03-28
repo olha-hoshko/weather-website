@@ -2,7 +2,7 @@ import { FC, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useWeatherForecast } from "../../features/weather-forecast";
 import { v4 as uuidv4 } from 'uuid';
 import { TodayForecastData } from "../today-forecast-data";
-import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { useThemeColor } from "../../features/theme-color";
 import { ThemeColors } from "../../enums/enums";
 
 const hoursDesktop = ['06:00', '09:00', '12:00', '15:00', '18:00', '21:00'];

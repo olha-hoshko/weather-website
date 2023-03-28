@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from "react";
 import { AirCondition, ThemeColors } from "../../enums/enums";
-import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { useThemeColor } from "../../features/theme-color";
 import { AirConditionsData } from "../air-conditions-data";
 
 export const AirConditions: FC = () => {

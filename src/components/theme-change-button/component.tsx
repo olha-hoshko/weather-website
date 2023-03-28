@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from 'react';
 import { ThemeColors } from '../../enums/enums';
-import { useThemeColor } from '../../features/theme-color/themeColorSlice';
+import { useThemeColor } from '../../features/theme-color';
 import { DarkThemeIcon, LightThemeIcon } from '../theme-icons';
 
 export const ThemeChangeButton: FC = () => {

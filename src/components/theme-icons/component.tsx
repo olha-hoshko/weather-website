@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { ThemeColors } from "../../enums/enums";
 import { ApplyClassNameProps, ThemeIconProps } from "./types";
-import './styles.css';
 
 const applyClassName = ({ currentTheme, currentIcon }: ApplyClassNameProps): string => {
   return currentTheme === currentIcon ? `${currentIcon}-theme-icon current-icon` : `${currentIcon}-theme-icon disable-icon`;

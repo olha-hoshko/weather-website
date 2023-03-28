@@ -2,10 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { ThemeColors } from "../../enums/enums";
-
-export type ThemeColorProps = {
-  value: ThemeColors,
-}
+import { ThemeColorProps } from "./types";
 
 const initialState: ThemeColorProps = {
   value: ThemeColors.light,

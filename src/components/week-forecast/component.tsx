@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { useWeatherForecast } from "../../features/weather-forecast";
 import { v4 as uuidv4} from 'uuid';
-import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { useThemeColor } from "../../features/theme-color";
 import { ThemeColors } from "../../enums/enums";
 import { WeekForecastData } from "../week-forecast-data";
 

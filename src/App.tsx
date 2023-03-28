@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { ForecastPage } from './components/forecast-page';
 import { HomePage } from './components/home-page';
-import { useThemeColor } from './features/theme-color/themeColorSlice';
+import { useThemeColor } from './features/theme-color';
 import { useEffect } from 'react';
 import { ThemeColors } from './enums/enums';
 

@@ -1,12 +1,8 @@
 import { FC } from "react";
-import { AirCondition, ThemeColors } from "../../enums/enums";
-import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { AirCondition } from "../../enums/enums";
+import { useThemeColor } from "../../features/theme-color";
 import { useWeatherForecast } from "../../features/weather-forecast";
-import { AirConditiomsDataProps } from "./types";
-
-export type IconProps = {
-  themeColor: ThemeColors
-}
+import { AirConditiomsDataProps, IconProps } from "./types";
 
 const TemperatureIcon: FC<IconProps> = ({ themeColor }) => {
   return (
@@ -104,7 +100,6 @@ export const AirConditionsData: FC<AirConditiomsDataProps> = ({ name }) => {
   const getIcon = () => {
     switch (name) {
       case AirCondition.real_feel:
-        console.log(name);
         return <TemperatureIcon themeColor={themeColor} />;
       case AirCondition.chance_of_rain:
         return <WaterDropIcon themeColor={themeColor} />;

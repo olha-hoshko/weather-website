@@ -4,14 +4,7 @@ import { ThemeChangeButton } from "../theme-change-button";
 import { WeatherData } from "../weather-data";
 import { motion as m } from 'framer-motion';
 import { useWeatherForecast } from "../../features/weather-forecast";
-
-export const LoadingSpinner: FC = () => {
-  return (
-    <div className="spinner-container">
-      <div className="loading-spinner"></div>
-    </div>
-  );
-}
+import { LoadingSpinner } from "../loading-spinner";
 
 export const ForecastPage: FC = () => {
   const { isFetching } = useWeatherForecast();
