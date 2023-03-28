@@ -1,6 +1,6 @@
 ## Design
 
-The design of this web page was copied from https://uizard.io/templates/web-app-templates/weather-web-app-dark/
+The idea of the design of this web page was copied from https://uizard.io/templates/web-app-templates/weather-web-app-dark/
 
 # Getting Started with Create React App
 
