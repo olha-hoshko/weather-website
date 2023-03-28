@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 
+:root {
+  --dark-main-background: #0b131e;
+  --light-main-background: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
-
   font-family: 'Nunito', sans-serif;
 }
 
@@ -12,8 +16,17 @@ body,
 #root {
   width: 100%;
   min-height: 100%;
+}
 
-  background-color: #0b131e;
+.dark-bg {
+  transition: background-color 0.3s ease-in-out;
+  background-color: var(--dark-main-background);
+}
+
+.light-bg {
+  transition: background-color 0.3s ease-in-out;
+  background-color: var(--light-main-background);
+  ;
 }
 
 .App {
@@ -58,11 +71,20 @@ body,
   margin: 10px 13% 0 13% !important;
 }
 
-.main-title-container {
-  color: #ffffff;
+.main-title-container-light,
+.main-title-container-dark {
   display: flex;
   align-items: flex-end;
   margin: 0 0 10px 34%;
+  transition: color 0.3s ease-in-out;
+}
+
+.main-title-container-light {
+  color: #252525;
+}
+
+.main-title-container-dark {
+  color: #ffffff;
 }
 
 /*HEADER*/
@@ -83,13 +105,19 @@ body,
   margin: 0 0 0 2.45% !important;
   width: 63.5% !important;
   height: 45px !important;
-  background: #202c3c !important;
-  padding: 0 20px !important;
+  padding: 0 0 0 20px !important;
   font-size: 17px !important;
-  color: aliceblue !important;
-
   border: none !important;
   border-radius: 10px !important;
+  background: #d9dcdf !important;
+  color: #070707 !important;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important;
+}
+
+.dark-search .css-13cymwt-control,
+.dark-search .css-t3ipsp-control {
+  background: #202c3c !important;
+  color: aliceblue !important;
 }
 
 .css-1xc3v61-indicatorContainer svg {
@@ -100,45 +128,62 @@ body,
   margin: 10px 0 0 2.45% !important;
   width: 63.5% !important;
   min-height: 45px !important;
-  background: #202c3c !important;
   font-size: 17px !important;
-  color: aliceblue !important;
-
   border: none !important;
   border-radius: 10px !important;
+  background: #d9dcdf !important;
+  color: #070707 !important;
+}
+
+.dark-search .css-1nmdiq5-menu {
+  background: #202c3c !important;
+  color: aliceblue !important;
 }
 
 .css-1u9des2-indicatorSeparator {
+  background: #a9a9a9 !important;
+}
+
+.dark-search .css-1u9des2-indicatorSeparator {
   background: #4f5772 !important;
 }
 
-.css-1cfo1cf {
+.dark-search .css-1cfo1cf {
   color: aliceblue !important;
 }
 
-.css-tj5bde-Svg {
-  top: 11px !important;
-  margin: 0 5px 0 0 !important;
+.css-1xc3v61-indicatorContainer {
+  color: #a9a9a9 !important;
 }
 
-.css-qbdosj-Input>input,
-.css-166bipr-Input>input {
+.dark-search .css-tj5bde-Svg {
+  top: 11px !important;
+}
+
+.dark-search .css-qbdosj-Input>input,
+.dark-search .css-166bipr-Input>input {
   caret-color: #c1c1c1;
   color: #d4d4d4 !important;
 }
 
-.css-1dimb5e-singleValue {
+.dark-search .css-1dimb5e-singleValue {
   color: #858585 !important;
 }
 
 .css-d7l1ni-option {
-  background-color: #2d3d53 !important;
   border-radius: 5px;
 }
 
+.dark-search .css-d7l1ni-option {
+  background-color: #2d3d53 !important;
+}
+
 .css-tr4s17-option {
-  background-color: #114895 !important;
   border-radius: 5px;
+}
+
+.dark-search .css-tr4s17-option {
+  background-color: #1f4a87 !important;
 }
 
 /*SPINNER*/
@@ -157,7 +202,7 @@ body,
   width: 50px;
   height: 50px;
   border: 10px solid #f3f3f3;
-  border-top: 10px solid #383636;
+  border-top: 10px solid #6b6b6b;
   border-radius: 50%;
   animation: spinner 1.5s linear infinite;
 }
@@ -195,8 +240,17 @@ body,
 .air-conditions,
 .week-forecast {
   flex: 1;
-  background: #202c3c;
   border-radius: 20px;
+}
+
+.light-theme-data-bg {
+  background: #d9dcdf;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dark-theme-data-bg {
+  background: #202c3c;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .current-weather {
@@ -219,24 +273,41 @@ body,
 }
 
 .current-weather-city h2 {
-  color: #ffffff;
   font-size: 35px;
   letter-spacing: 1px;
   padding: 0 0 10px 0;
-  transition: 1s;
+  transition: 0.3s;
 }
 
 .current-weather-city p {
-  color: #c1c1c1;
   font-size: 15px;
   letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.current-weather-city .light-theme-text-small {
+  color: #676767;
+}
+
+.current-weather-city .dark-theme-text-small {
+  color: #c1c1c1;
 }
 
 .current-weather-temperature p {
-  color: #ffffff;
   font-size: 55px;
   font-weight: 600;
   padding: 10px 0 0 0;
+  transition: 0.3s;
+}
+
+.current-weather-city .dark-theme-text,
+.current-weather-temperature .dark-theme-text {
+  color: #ffffff;
+}
+
+.current-weather-city .light-theme-text,
+.current-weather-temperature .light-theme-text {
+  color: #070707;
 }
 
 .current-weather-pic {
@@ -272,6 +343,13 @@ body,
   font-weight: 600;
   color: #d4d4d4;
   font-size: 14px;
+  transition: color 0.3s ease-in-out;
+}
+
+.today-forecast-title .dark-text,
+.air-conditions-title .dark-text,
+.week-forecast-title .dark-text {
+  color: #070707;
 }
 
 .today-forecast-hourly,
@@ -281,8 +359,14 @@ body,
   padding: 15px 10px 0 10px;
 }
 
-.today-forecast-hourly> :not(:last-child) {
+.today-forecast-hourly-light> :not(:last-child) {
+  border-right: 1px solid #cacbd0;
+  transition: border 0.3s ease-in-out; 
+}
+
+.today-forecast-hourly-dark> :not(:last-child) {
   border-right: 1px solid #4f5772;
+  transition: border 0.3s ease-in-out;
 }
 
 .today-forecast-data {
@@ -298,13 +382,21 @@ body,
 }
 
 .today-forecast-data> :first-child {
-  color: #c1c1c1;
   font-size: 15px;
   line-height: 35px;
 }
 
+.dark-theme-hour {
+  color: #c1c1c1;
+  transition: color 0.3s ease-in-out;
+}
+
+.light-theme-hour {
+  color: #161616;
+  transition: color 0.3s ease-in-out;
+}
+
 .today-forecast-data> :last-child {
-  color: #d4d4d4;
   font-size: 25px;
   padding: 7px 0 0 0;
 }
@@ -335,7 +427,6 @@ body,
 
 .air-conditions-data-title {
   font-size: 17px;
-  color: #c1c1c1;
   padding: 3px 0 0 0;
   text-transform: capitalize;
 }
@@ -343,7 +434,6 @@ body,
 .air-conditions-data-indicator {
   font-size: 30px;
   font-weight: 700;
-  color: #d4d4d4;
 }
 
 .air-conditions-container-left> :first-child .air-conditions-data-indicator,
@@ -351,9 +441,19 @@ body,
   padding: 0 0 20px 0;
 }
 
-.air-conditions-icon img {
+.air-conditions-icon svg {
   height: 25px;
   padding: 0 10px 0 0;
+}
+
+.light-air-condition-icon {
+  fill: #191919;
+  transition: fill 0.3s ease-in-out;
+}
+
+.dark-air-condition-icon {
+  fill: #d4d4d4;
+  transition: fill 0.3s ease-in-out;
 }
 
 
@@ -378,8 +478,14 @@ body,
   padding: 0 15px;
 }
 
-.week-forecast-daily> :not(:last-child) {
+.week-forecast-daily-dark> :not(:last-child) {
   border-bottom: 1px solid #4f5772;
+  transition: border 0.3s ease-in-out;
+}
+
+.week-forecast-daily-light> :not(:last-child) {
+  border-bottom: 1px solid #cacbd0;
+  transition: border 0.3s ease-in-out;
 }
 
 .week-forecast-data {
@@ -423,9 +529,16 @@ body,
   font-weight: 600;
 }
 
+.dark-theme-side-text {
+  color: #b0b0b0;
+}
+
+.light-theme-side-text {
+  color: #313131;
+}
+
 .week-forecast-weather,
 .temperature-limits-day {
-  color: #d4d4d4;
   font-weight: 700;
 }
 
@@ -562,7 +675,7 @@ body,
     padding: 13px 5px 0 5px;
   }
 
-  .air-conditions-icon img {
+  .air-conditions-icon svg {
     height: 20px;
   }
 
@@ -584,7 +697,8 @@ body,
     min-height: 170vh;
   }
 
-  .App, .home-page {
+  .App,
+  .home-page {
     flex-direction: column;
   }
 

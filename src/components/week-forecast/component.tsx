@@ -1,35 +1,15 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { useWeatherForecast } from "../../features/weather-forecast";
 import { v4 as uuidv4} from 'uuid';
-
-export type WeekForecastDataProps = {
-  dayOfWeek: string,
-  condition: string,
-  maxTemperature: number,
-  minTemperature: number,
-}
-
-export const WeekForecastData: FC<WeekForecastDataProps> = ({ dayOfWeek, condition, maxTemperature, minTemperature }) => {
-  return (
-    <div className={`week-forecast-data ${dayOfWeek}`}>
-      <p className='day-of-week'>{dayOfWeek}</p>
-      <div className='week-forecast-weather-container'>
-        <div className='week-forecast-weather-icon'>
-          <img src={`./images/${condition}.svg`} alt='' />
-        </div>
-        <p className='week-forecast-weather'>{condition}</p>
-      </div>
-      <div className='temperature-limits'>
-        <span className='temperature-limits-day'>{maxTemperature}°C</span>
-        <span className='temperature-limits-night'>&nbsp;/ {minTemperature}°C</span>
-      </div>
-    </div>
-  );
-}
+import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { ThemeColors } from "../../enums/enums";
+import { WeekForecastData } from "../week-forecast-data";
 
 export const WeekForecast: FC = () => {
   const { weatherForecastData } = useWeatherForecast();
   const [weekWeatherForecast, setWeekWeatherForecast] = useState<any>([]);
+  const { themeColor } = useThemeColor();
+  const titleRef = useRef<HTMLDivElement>(null);
   const daysOfWeek = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
   const getDayOfWeek = (day: string) => {
@@ -44,15 +24,24 @@ export const WeekForecast: FC = () => {
     } else {
       setWeekWeatherForecast(weatherForecastData.forecast.forecastday);
     }
-  }, [weatherForecastData])
+  }, [weatherForecastData]);
+
+  useEffect(() => {
+    if (!titleRef.current) return;
+    if (themeColor === ThemeColors.light) {
+      titleRef.current.classList.add('dark-text');
+    } else if (titleRef.current.classList.length > 0) {
+      titleRef.current.classList.remove('dark-text');
+    }
+  }, [themeColor]);
 
   return (
-    <div className='week-forecast'>
+    <div className={`week-forecast ${themeColor}-theme-data-bg`}>
       <div className='week-forecast-title'>
-        <p>7-day forecast</p>
+        <p ref={titleRef}>7-day forecast</p>
       </div>
 
-      <div className='week-forecast-daily'>
+      <div className={`week-forecast-daily week-forecast-daily-${themeColor}`}>
         {
           weekWeatherForecast.map((day: any, index: number) => {
             let dayOfWeek;

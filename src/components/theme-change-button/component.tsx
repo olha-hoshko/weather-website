@@ -1,21 +1,16 @@
-import { FC, useState } from 'react';
-import { ThemeChangeButtonIcons } from '../../enums/enums';
+import { FC } from 'react';
+import { useThemeColor } from '../../features/theme-color/themeColorSlice';
 import { DarkThemeIcon, LightThemeIcon } from '../theme-icons';
 
 export const ThemeChangeButton: FC = () => {
-  //const {currentTheme} = useThemeContext();
-  const [theme, setTheme] = useState<ThemeChangeButtonIcons>(ThemeChangeButtonIcons.light);
-
-  const handleClick = () => {
-    setTheme(theme === ThemeChangeButtonIcons.dark ? ThemeChangeButtonIcons.light : ThemeChangeButtonIcons.dark);
-  }
+  const { changeThemeColor, themeColor } = useThemeColor();
 
   return (
     <div className='theme-change-button-container'>
-      <input type='checkbox' id='toggle-dark' onClick={handleClick} />
+      <input type='checkbox' id='toggle-dark' onClick={changeThemeColor} />
       <label htmlFor='toggle-dark' id='toggle-label'>
-        <LightThemeIcon currentTheme={theme} />
-        <DarkThemeIcon currentTheme={theme} />
+        <LightThemeIcon currentTheme={themeColor} />
+        <DarkThemeIcon currentTheme={themeColor} />
       </label>
 
       <div className='poweredBy'>

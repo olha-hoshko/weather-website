@@ -1,10 +1,14 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
+import { ThemeColors } from "../../enums/enums";
+import { useThemeColor } from "../../features/theme-color/themeColorSlice";
 import { fetchAsyncWeatherForecast, useWeatherForecast } from "../../features/weather-forecast";
 
 export const Header: FC = () => {
   const { dispatch } = useWeatherForecast();
   const [search, setSearch] = useState(null);
+  const { themeColor } = useThemeColor();
+  const [className, setClassName] = useState<string>('');
 
   const handleChange = (searchData: any) => {
     setSearch(searchData);
@@ -23,11 +27,20 @@ export const Header: FC = () => {
     }
   }
 
+  useEffect(() => {
+    if(themeColor === ThemeColors.dark) {
+      setClassName('dark-search');
+    } else {
+      setClassName('');
+    }
+  }, [themeColor]);
+
   return (
     <div className='header'>
       <div className='search-city-container'>
         <AsyncPaginate id='search-input'
           placeholder='Search the city...'
+          className={className}
           debounceTimeout={600}
           value={search}
           onChange={handleChange}

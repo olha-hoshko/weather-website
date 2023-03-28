@@ -1,7 +1,7 @@
-export enum ThemeChangeButtonIcons {
-  light = 'light',
+export enum ThemeColors {
   dark = 'dark',
-};
+  light = 'light',
+}
 
 export enum AirCondition {
   real_feel = 'real-feel',

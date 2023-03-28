@@ -1,9 +1,9 @@
-import { ThemeChangeButtonIcons } from "../../enums/enums"
+import { ThemeColors } from "../../enums/enums"
 
 export type ThemeIconProps = {
-  currentTheme: ThemeChangeButtonIcons,
+  currentTheme: ThemeColors,
 }
 
 export type ApplyClassNameProps = ThemeIconProps & {
-  currentIcon: ThemeChangeButtonIcons,
+  currentIcon: ThemeColors,
 }

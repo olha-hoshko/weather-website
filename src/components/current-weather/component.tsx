@@ -1,8 +1,10 @@
 import { FC } from "react";
+import { useThemeColor } from "../../features/theme-color/themeColorSlice";
 import { useWeatherForecast } from "../../features/weather-forecast";
 
 export const CurrentWeather: FC = () => {
   const { weatherForecastData } = useWeatherForecast();
+  const { themeColor } = useThemeColor();
   const getCity = () => {
     if (Object.keys(weatherForecastData.location).length === 0) return '___';
     return `${weatherForecastData.location.name}, ${weatherForecastData.location.country}`;
@@ -30,12 +32,12 @@ export const CurrentWeather: FC = () => {
     <div className='current-weather'>
       <div className='current-weather-data'>
         <div className='current-weather-city'>
-          <h2>{getCity()}</h2>
-          <p>{getChanceOfRain()}</p>
+          <h2 className={`${themeColor}-theme-text`}>{getCity()}</h2>
+          <p className={`${themeColor}-theme-text-small`}>{getChanceOfRain()}</p>
         </div>
 
         <div className='current-weather-temperature'>
-          <p>{getTemperature()}</p>
+          <p className={`${themeColor}-theme-text`}>{getTemperature()}</p>
         </div>
       </div>
 

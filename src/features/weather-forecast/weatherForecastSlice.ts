@@ -50,9 +50,9 @@ export const useWeatherForecast = () => {
   };
 }
 
-export const { setError, setWeatherForecast, fetchStarted } = weatherForecastSlice.actions;
-
 export const weatherForecastReducer = weatherForecastSlice.reducer;
+
+export const { setError, setWeatherForecast, fetchStarted } = weatherForecastSlice.actions;
 
 export const fetchAsyncWeatherForecast = (searchData: any) => {
   return async (dispatch: AppDispatch) => {

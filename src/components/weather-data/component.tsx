@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { AirConditions } from "../air-conditions/component";
-import { CurrentWeather } from "../current-weather/component";
-import { TodayForecast } from "../today-forecast/component";
-import { WeekForecast } from "../week-forecast/component";
+import { AirConditions } from "../air-conditions";
+import { CurrentWeather } from "../current-weather";
+import { TodayForecast } from "../today-forecast";
+import { WeekForecast } from "../week-forecast";
 
 export const WeatherData: FC = () => {
   return (

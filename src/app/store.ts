@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { themeColorReducer } from '../features/theme-color/themeColorSlice';
 import { weatherForecastReducer } from '../features/weather-forecast';
-// ...
 
 export const store = configureStore({
   reducer: {
     weatherForecast: weatherForecastReducer,
+    themeColor: themeColorReducer,
   }
 });
 

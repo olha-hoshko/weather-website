@@ -1,7 +1,9 @@
-import { FC, useEffect, useLayoutEffect, useState } from "react";
+import { FC, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useWeatherForecast } from "../../features/weather-forecast";
 import { v4 as uuidv4 } from 'uuid';
 import { TodayForecastData } from "../today-forecast-data";
+import { useThemeColor } from "../../features/theme-color/themeColorSlice";
+import { ThemeColors } from "../../enums/enums";
 
 const hoursDesktop = ['06:00', '09:00', '12:00', '15:00', '18:00', '21:00'];
 const hoursMobile = ['09:00', '15:00', '21:00'];
@@ -23,6 +25,8 @@ export const TodayForecast: FC = () => {
   const { weatherForecastData } = useWeatherForecast();
   const [todayForecastData, setTodayForecastData] = useState<any>({ hour: [] });
   const windowWidth = useWindowSize();
+  const { themeColor } = useThemeColor();
+  const titleRef = useRef<HTMLDivElement>(null);
 
   const getHoursToShow = () => {
     if (windowWidth > 768) {
@@ -41,12 +45,21 @@ export const TodayForecast: FC = () => {
     }
   }, [weatherForecastData]);
 
+  useEffect(() => {
+    if (!titleRef.current) return;
+    if (themeColor === ThemeColors.light) {
+      titleRef.current.classList.add('dark-text');
+    } else if (titleRef.current.classList.length > 0) {
+      titleRef.current.classList.remove('dark-text');
+    }
+  }, [themeColor]);
+
   return (
-    <div className='today-forecast'>
+    <div className={`today-forecast ${themeColor}-theme-data-bg`}>
       <div className='today-forecast-title'>
-        <p>today's forecast</p>
+        <p ref={titleRef}>today's forecast</p>
       </div>
-      <div className='today-forecast-hourly'>
+      <div className={`today-forecast-hourly today-forecast-hourly-${themeColor}`}>
         {
           todayForecastData.hour.map((data: any) => {
             const dataHours = data.time.slice(-5);
