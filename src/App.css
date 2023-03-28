@@ -702,7 +702,7 @@ body,
     flex-direction: column;
   }
 
-  .main-title-container {
+  .main-title-container-light, .main-title-container-dark {
     margin: 0 0 5px 0;
     justify-content: center;
   }
