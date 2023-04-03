@@ -658,6 +658,14 @@ body,
 }
 
 @media screen and (max-width: 480px) {
+  .theme-change-button-container {
+    padding: 10px;
+  }
+
+  .poweredBy {
+    right: 15px;
+  }
+
   .current-weather-pic img {
     max-height: 125px;
     padding: 40px 0;
@@ -716,6 +724,16 @@ body,
   }
 }
 
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .theme-change-button-container {
+    padding: 10px 25px;
+  }
+
+  .poweredBy {
+    right: 30px;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .App,
   .home-page {
@@ -724,7 +742,7 @@ body,
   }
 
   .App {
-    min-height: 170vh;
+    min-height: 145vh;
     overflow-y: auto;
   }
 
@@ -735,14 +753,12 @@ body,
 
   .theme-change-button-container {
     flex-direction: row;
-    padding: 10px 30px;
     position: relative;
   }
 
   .poweredBy {
     align-self: flex-end;
     position: absolute;
-    right: 30px;
     top: 0;
     padding: 0;
     justify-content: center;
@@ -794,6 +810,6 @@ body,
   .weather-week-container {
     padding: 0 2.7% 20px 2.7%;
     flex: none;
-    min-height: 75vh;
+    min-height: 50vh;
   }
 }

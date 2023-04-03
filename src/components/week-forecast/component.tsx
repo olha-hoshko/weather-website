@@ -38,7 +38,7 @@ export const WeekForecast: FC = () => {
   return (
     <div className={`week-forecast ${themeColor}-theme-data-bg`}>
       <div className='week-forecast-title'>
-        <p ref={titleRef}>7-day forecast</p>
+        <p ref={titleRef}>3-day forecast</p>
       </div>
 
       <div className={`week-forecast-daily week-forecast-daily-${themeColor}`}>
